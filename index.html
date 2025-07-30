@@ -1,257 +1,281 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StreamPilot - Extension Chrome</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
 
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      header {
+        text-align: center;
+        color: white;
+        margin-bottom: 3rem;
+      }
+
+      .logo {
+        width: 128px;
+        height: 128px;
+        margin: 0 auto 1rem;
+        background: white;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      .main-content {
+        background: white;
+        border-radius: 15px;
+        padding: 3rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+
+      .feature {
+        padding: 1.5rem;
+        border: 2px solid #f0f0f0;
+        border-radius: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .feature:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature h3 {
+        color: #667eea;
+        margin-bottom: 1rem;
+      }
+
+      .shortcuts {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 10px;
+        margin: 2rem 0;
+      }
+
+      .shortcut-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+      }
+
+      .shortcut {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem;
+      }
+
+      .key-combo {
+        background: #333;
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 5px;
+        font-family: monospace;
+        font-size: 0.9rem;
+      }
+
+      .download-section {
+        text-align: center;
+        margin: 3rem 0;
+      }
+
+      .download-btn {
+        display: inline-block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: transform 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .download-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .installation {
+        background: #e8f5e8;
+        padding: 2rem;
+        border-radius: 10px;
+        border-left: 5px solid #28a745;
+      }
+
+      .installation ol {
+        margin-left: 1.5rem;
+      }
+
+      .installation li {
+        margin-bottom: 0.5rem;
+      }
+
+      footer {
+        text-align: center;
+        color: white;
+        opacity: 0.8;
+        margin-top: 2rem;
+      }
+
+      @media (max-width: 768px) {
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        header {
-            text-align: center;
-            color: white;
-            margin-bottom: 3rem;
-        }
-
-        .logo {
-            width: 128px;
-            height: 128px;
-            margin: 0 auto 1rem;
-            background: white;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+          padding: 1rem;
         }
 
         h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
+          font-size: 2rem;
         }
 
         .main-content {
-            background: white;
-            border-radius: 15px;
-            padding: 3rem;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+          padding: 2rem;
         }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .feature {
-            padding: 1.5rem;
-            border: 2px solid #f0f0f0;
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .feature:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .feature h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-
-        .shortcuts {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-        }
-
-        .shortcut-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-
-        .shortcut {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.5rem;
-        }
-
-        .key-combo {
-            background: #333;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 5px;
-            font-family: monospace;
-            font-size: 0.9rem;
-        }
-
-        .download-section {
-            text-align: center;
-            margin: 3rem 0;
-        }
-
-        .download-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: transform 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-
-        .installation {
-            background: #e8f5e8;
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 5px solid #28a745;
-        }
-
-        .installation ol {
-            margin-left: 1.5rem;
-        }
-
-        .installation li {
-            margin-bottom: 0.5rem;
-        }
-
-        footer {
-            text-align: center;
-            color: white;
-            opacity: 0.8;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .main-content {
-                padding: 2rem;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <div class="logo">
-                <img src="icons/icon128.png" alt="StreamPilot" style="width: 80px; height: 80px;">
+      <header>
+        <div class="logo">
+          <img
+            src="icons/icon128.png"
+            alt="StreamPilot"
+            style="width: 80px; height: 80px"
+          />
+        </div>
+        <h1>StreamPilot</h1>
+        <p class="subtitle">
+          Boîte à outils complète pour améliorer votre expérience vidéo sur le
+          web
+        </p>
+      </header>
+
+      <div class="main-content">
+        <section>
+          <h2>Fonctionnalités</h2>
+          <div class="features">
+            <div class="feature">
+              <h3>Picture-in-Picture</h3>
+              <p>
+                Regardez vos vidéos dans une fenêtre flottante tout en naviguant
+                sur d'autres sites.
+              </p>
             </div>
-            <h1>StreamPilot</h1>
-            <p class="subtitle">Boîte à outils complète pour améliorer votre expérience vidéo sur le web</p>
-        </header>
-
-        <div class="main-content">
-            <section>
-                <h2>Fonctionnalités</h2>
-                <div class="features">
-                    <div class="feature">
-                        <h3>Picture-in-Picture</h3>
-                        <p>Regardez vos vidéos dans une fenêtre flottante tout en naviguant sur d'autres sites.</p>
-                    </div>
-                    <div class="feature">
-                        <h3>Contrôle de vitesse</h3>
-                        <p>Accélérez ou ralentissez la lecture vidéo selon vos préférences.</p>
-                    </div>
-                    <div class="feature">
-                        <h3>Gestion du son</h3>
-                        <p>Coupez ou remettez le son facilement d'un simple clic.</p>
-                    </div>
-                    <div class="feature">
-                        <h3>Raccourcis clavier</h3>
-                        <p>Contrôles rapides via des combinaisons de touches personnalisables.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="shortcuts">
-                <h2>Raccourcis clavier</h2>
-                <div class="shortcut-list">
-                    <div class="shortcut">
-                        <span>Picture-in-Picture</span>
-                        <span class="key-combo">Ctrl+Shift+P</span>
-                    </div>
-                    <div class="shortcut">
-                        <span>Couper/Remettre le son</span>
-                        <span class="key-combo">Ctrl+Shift+M</span>
-                    </div>
-                    <div class="shortcut">
-                        <span>Augmenter la vitesse</span>
-                        <span class="key-combo">Ctrl+Shift+.</span>
-                    </div>
-                    <div class="shortcut">
-                        <span>Diminuer la vitesse</span>
-                        <span class="key-combo">Ctrl+Shift+,</span>
-                    </div>
-                </div>
-            </section>
-
-            <div class="download-section">
-                <a href="https://github.com/nmoussaoui-epsi/StreamPilot/archive/main.zip" class="download-btn">
-                    Télécharger StreamPilot
-                </a>
+            <div class="feature">
+              <h3>Contrôle de vitesse</h3>
+              <p>
+                Accélérez ou ralentissez la lecture vidéo selon vos préférences.
+              </p>
             </div>
+            <div class="feature">
+              <h3>Gestion du son</h3>
+              <p>Coupez ou remettez le son facilement d'un simple clic.</p>
+            </div>
+            <div class="feature">
+              <h3>Raccourcis clavier</h3>
+              <p>
+                Contrôles rapides via des combinaisons de touches
+                personnalisables.
+              </p>
+            </div>
+          </div>
+        </section>
 
-            <section class="installation">
-                <h2>Installation</h2>
-                <ol>
-                    <li>Téléchargez l'extension en cliquant sur le bouton ci-dessus</li>
-                    <li>Décompressez le fichier ZIP</li>
-                    <li>Ouvrez Chrome et allez dans <code>chrome://extensions/</code></li>
-                    <li>Activez le "Mode développeur" en haut à droite</li>
-                    <li>Cliquez sur "Charger l'extension non empaquetée"</li>
-                    <li>Sélectionnez le dossier StreamPilot décompressé</li>
-                </ol>
-            </section>
+        <section class="shortcuts">
+          <h2>Raccourcis clavier</h2>
+          <div class="shortcut-list">
+            <div class="shortcut">
+              <span>Picture-in-Picture</span>
+              <span class="key-combo">Ctrl+Shift+P</span>
+            </div>
+            <div class="shortcut">
+              <span>Couper/Remettre le son</span>
+              <span class="key-combo">Ctrl+Shift+M</span>
+            </div>
+            <div class="shortcut">
+              <span>Augmenter la vitesse</span>
+              <span class="key-combo">Ctrl+Shift+.</span>
+            </div>
+            <div class="shortcut">
+              <span>Diminuer la vitesse</span>
+              <span class="key-combo">Ctrl+Shift+,</span>
+            </div>
+          </div>
+        </section>
+
+        <div class="download-section">
+          <a
+            href="https://github.com/nmoussaoui-epsi/StreamPilot/archive/main.zip"
+            class="download-btn"
+          >
+            Télécharger StreamPilot
+          </a>
         </div>
 
-        <footer>
-            <p>&copy; 2025 StreamPilot - Extension Chrome pour une meilleure expérience vidéo</p>
-        </footer>
+        <section class="installation">
+          <h2>Installation</h2>
+          <ol>
+            <li>Téléchargez l'extension en cliquant sur le bouton ci-dessus</li>
+            <li>Décompressez le fichier ZIP</li>
+            <li>
+              Ouvrez Chrome et allez dans <code>chrome://extensions/</code>
+            </li>
+            <li>Activez le "Mode développeur" en haut à droite</li>
+            <li>Cliquez sur "Charger l'extension non empaquetée"</li>
+            <li>Sélectionnez le dossier StreamPilot décompressé</li>
+          </ol>
+        </section>
+      </div>
+
+      <footer>
+        <p>
+          &copy; 2025 StreamPilot - Extension Chrome pour une meilleure
+          expérience vidéo
+        </p>
+      </footer>
     </div>
-</body>
+  </body>
 </html>
