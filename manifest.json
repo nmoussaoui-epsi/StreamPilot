@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "StreamPilot",
+  "version": "1.0.0",
+  "description": "Boîte à outils complète pour améliorer votre expérience vidéo sur le web.",
+  "permissions": ["activeTab", "storage", "scripting", "contextMenus", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "StreamPilot",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "toggle-pip": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+P"
+      },
+      "description": "Basculer en mode Picture-in-Picture"
+    },
+    "toggle-mute": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+M"
+      },
+      "description": "Couper/Remettre le son"
+    },
+    "speed-up": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Period"
+      },
+      "description": "Augmenter la vitesse de lecture"
+    },
+    "speed-down": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Comma"
+      },
+      "description": "Diminuer la vitesse de lecture"
+    }
+  }
+}
