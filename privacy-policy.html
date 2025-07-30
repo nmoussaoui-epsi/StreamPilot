@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Politique de Confidentialité - StreamPilot</title>
+    <style>
+      /* Variables CSS identiques à l'extension */
+      :root {
+        --primary-color: #2563eb;
+        --primary-hover: #1d4ed8;
+        --secondary-color: #64748b;
+        --background: #ffffff;
+        --surface: #f8fafc;
+        --border: #e2e8f0;
+        --text-primary: #1e293b;
+        --text-secondary: #64748b;
+        --success: #059669;
+        --danger: #dc2626;
+        --warning: #d97706;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background: var(--surface);
+        color: var(--text-primary);
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      /* Header */
+      .header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 30px;
+        padding: 20px;
+        background: var(--background);
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+      }
+
+      .logo {
+        width: 48px;
+        height: 48px;
+        background: var(--surface);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border);
+      }
+
+      .logo img {
+        width: 32px;
+        height: 32px;
+      }
+
+      .header h1 {
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--text-primary);
+        flex: 1;
+      }
+
+      .back-link {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .back-link:hover {
+        text-decoration: underline;
+      }
+
+      /* Content */
+      .content {
+        background: var(--background);
+        border-radius: 12px;
+        padding: 30px;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+      }
+
+      .content h2 {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin: 30px 0 16px 0;
+      }
+
+      .content h2:first-child {
+        margin-top: 0;
+      }
+
+      .content h3 {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin: 20px 0 12px 0;
+      }
+
+      .content p {
+        margin-bottom: 16px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+      }
+
+      .content ul {
+        margin: 16px 0;
+        padding-left: 20px;
+      }
+
+      .content li {
+        margin-bottom: 8px;
+        color: var(--text-secondary);
+      }
+
+      .highlight {
+        background: var(--surface);
+        padding: 16px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        margin: 20px 0;
+      }
+
+      .last-updated {
+        color: var(--text-secondary);
+        font-style: italic;
+        margin-bottom: 30px;
+        padding: 12px;
+        background: var(--surface);
+        border-radius: 8px;
+        border: 1px solid var(--border);
+      }
+
+      /* Footer */
+      .footer {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+        color: var(--text-secondary);
+        font-size: 14px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        .header h1 {
+          font-size: 24px;
+        }
+
+        .content {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <div class="header">
+        <div class="logo">
+          <img src="icons/icon128.png" alt="StreamPilot" />
+        </div>
+        <div>
+          <h1>Politique de Confidentialité</h1>
+          <a href="index.html" class="back-link">← Retour à l'accueil</a>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="last-updated">
+          <strong>Dernière mise à jour :</strong> 30 juillet 2025
+        </div>
+
+        <h2>1. Introduction</h2>
+        <p>
+          Cette politique de confidentialité décrit comment StreamPilot ("nous",
+          "notre" ou "l'extension") collecte, utilise et protège vos
+          informations lorsque vous utilisez notre extension Chrome.
+        </p>
+        <p>
+          StreamPilot est conçu pour améliorer votre expérience de visionnage
+          vidéo sur le web tout en respectant votre vie privée.
+        </p>
+
+        <h2>2. Informations que nous collectons</h2>
+
+        <h3>2.1 Données collectées localement</h3>
+        <p>
+          StreamPilot collecte et stocke uniquement les informations suivantes
+          sur votre appareil local :
+        </p>
+        <ul>
+          <li>
+            <strong>Préférences utilisateur :</strong> Vos paramètres de vitesse
+            de lecture préférés
+          </li>
+          <li>
+            <strong>État des contrôles :</strong> Statut du mode
+            Picture-in-Picture et du son
+          </li>
+          <li>
+            <strong>Paramètres de l'extension :</strong> Configuration de
+            l'interface utilisateur
+          </li>
+        </ul>
+
+        <div class="highlight">
+          <strong>Important :</strong> Toutes ces données sont stockées
+          localement dans votre navigateur et ne sont jamais transmises à des
+          serveurs externes.
+        </div>
+
+        <h3>2.2 Données que nous ne collectons PAS</h3>
+        <p>
+          StreamPilot ne collecte, ne stocke et ne transmet aucune des
+          informations suivantes :
+        </p>
+        <ul>
+          <li>Informations personnelles identifiables</li>
+          <li>Historique de navigation</li>
+          <li>Contenu des vidéos regardées</li>
+          <li>URLs des sites visités</li>
+          <li>Données de géolocalisation</li>
+          <li>Informations de connexion ou mots de passe</li>
+        </ul>
+
+        <h2>3. Comment nous utilisons vos informations</h2>
+        <p>
+          Les données collectées localement sont utilisées exclusivement pour :
+        </p>
+        <ul>
+          <li>Sauvegarder vos préférences entre les sessions</li>
+          <li>Améliorer l'expérience utilisateur de l'extension</li>
+          <li>Maintenir l'état des contrôles vidéo</li>
+        </ul>
+
+        <h2>4. Partage des données</h2>
+        <p>
+          <strong>StreamPilot ne partage aucune donnée avec des tiers.</strong>
+          L'extension fonctionne entièrement en local et n'établit aucune
+          connexion avec des serveurs externes.
+        </p>
+
+        <h2>5. Sécurité des données</h2>
+        <p>
+          Vos données sont protégées par les mécanismes de sécurité intégrés de
+          Chrome :
+        </p>
+        <ul>
+          <li>Stockage local sécurisé via l'API Chrome Storage</li>
+          <li>Isolation des données par extension</li>
+          <li>Chiffrement automatique des données stockées</li>
+        </ul>
+
+        <h2>6. Permissions demandées</h2>
+        <p>StreamPilot demande les permissions suivantes pour fonctionner :</p>
+        <ul>
+          <li>
+            <strong>activeTab :</strong> Pour interagir avec l'onglet actif
+          </li>
+          <li>
+            <strong>storage :</strong> Pour sauvegarder vos préférences
+            localement
+          </li>
+          <li>
+            <strong>scripting :</strong> Pour injecter les contrôles vidéo
+          </li>
+          <li>
+            <strong>contextMenus :</strong> Pour ajouter des options au menu
+            contextuel
+          </li>
+          <li>
+            <strong>tabs :</strong> Pour gérer les onglets avec des vidéos
+          </li>
+        </ul>
+
+        <h2>7. Vos droits</h2>
+        <p>Vous avez le contrôle total sur vos données :</p>
+        <ul>
+          <li>
+            <strong>Accès :</strong> Toutes vos données sont stockées localement
+            dans votre navigateur
+          </li>
+          <li>
+            <strong>Modification :</strong> Vous pouvez modifier vos préférences
+            à tout moment
+          </li>
+          <li>
+            <strong>Suppression :</strong> Désinstaller l'extension supprime
+            automatiquement toutes les données
+          </li>
+          <li>
+            <strong>Portabilité :</strong> Vos préférences sont liées à votre
+            profil Chrome
+          </li>
+        </ul>
+
+        <h2>8. Conservation des données</h2>
+        <p>
+          Les données sont conservées uniquement tant que l'extension est
+          installée. La désinstallation de StreamPilot supprime automatiquement
+          toutes les données associées.
+        </p>
+
+        <h2>9. Modifications de cette politique</h2>
+        <p>
+          Nous pouvons mettre à jour cette politique de confidentialité
+          occasionnellement. Les modifications seront publiées sur cette page
+          avec une nouvelle date de "dernière mise à jour".
+        </p>
+
+        <h2>10. Contact</h2>
+        <p>
+          Si vous avez des questions concernant cette politique de
+          confidentialité ou le fonctionnement de StreamPilot, vous pouvez nous
+          contacter via GitHub.
+        </p>
+
+        <div class="highlight">
+          <strong>Résumé :</strong> StreamPilot respecte votre vie privée en ne
+          collectant aucune donnée personnelle et en fonctionnant entièrement en
+          local sur votre appareil.
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>
+          &copy; 2025 StreamPilot - Extension Chrome pour une meilleure
+          expérience vidéo
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
