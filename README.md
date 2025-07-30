@@ -54,7 +54,3 @@ Le projet utilise l'architecture standard des extensions Chrome avec :
 - Un service worker pour les tâches en arrière-plan
 - Un content script pour interagir avec les pages web
 - Un popup pour l'interface utilisateur
-
-## Licence
-
-Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.

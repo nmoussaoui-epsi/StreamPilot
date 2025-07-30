@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StreamPilot - Extension Chrome</title>
     <style>
+      /* Variables CSS identiques à l'extension */
+      :root {
+        --primary-color: #2563eb;
+        --primary-hover: #1d4ed8;
+        --secondary-color: #64748b;
+        --background: #ffffff;
+        --surface: #f8fafc;
+        --border: #e2e8f0;
+        --text-primary: #1e293b;
+        --text-secondary: #64748b;
+        --success: #059669;
+        --danger: #dc2626;
+        --warning: #d97706;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+
       * {
         margin: 0;
         padding: 0;
@@ -12,189 +29,273 @@
       }
 
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          sans-serif;
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background: var(--surface);
+        color: var(--text-primary);
         line-height: 1.6;
-        color: #333;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         min-height: 100vh;
       }
 
       .container {
-        max-width: 1200px;
+        max-width: 1000px;
         margin: 0 auto;
         padding: 2rem;
       }
 
-      header {
-        text-align: center;
-        color: white;
-        margin-bottom: 3rem;
+      /* Header identique à l'extension */
+      .header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 30px;
+        padding: 20px;
+        background: var(--background);
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
       }
 
       .logo {
-        width: 128px;
-        height: 128px;
-        margin: 0 auto 1rem;
-        background: white;
-        border-radius: 20px;
+        width: 48px;
+        height: 48px;
+        background: var(--surface);
+        border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        border: 1px solid var(--border);
       }
 
-      h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      .logo img {
+        width: 32px;
+        height: 32px;
+      }
+
+      .header h1 {
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--text-primary);
+        flex: 1;
       }
 
       .subtitle {
-        font-size: 1.2rem;
-        opacity: 0.9;
+        font-size: 16px;
+        color: var(--text-secondary);
+        margin-top: 4px;
       }
 
+      /* Sections avec le style de l'extension */
       .main-content {
-        background: white;
-        border-radius: 15px;
-        padding: 3rem;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
       }
 
+      .section {
+        background: var(--background);
+        border-radius: 12px;
+        padding: 20px;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+      }
+
+      .section h2 {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 16px;
+      }
+
+      /* Grille de fonctionnalités */
       .features {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin: 2rem 0;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
       }
 
       .feature {
-        padding: 1.5rem;
-        border: 2px solid #f0f0f0;
-        border-radius: 10px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 16px;
+        transition: all 0.2s ease;
       }
 
       .feature:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+        box-shadow: var(--shadow-lg);
       }
 
       .feature h3 {
-        color: #667eea;
-        margin-bottom: 1rem;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: inherit;
       }
 
-      .shortcuts {
-        background: #f8f9fa;
-        padding: 2rem;
-        border-radius: 10px;
-        margin: 2rem 0;
+      .feature p {
+        font-size: 14px;
+        color: inherit;
+        opacity: 0.8;
       }
 
+      /* Raccourcis clavier avec le style de l'extension */
       .shortcut-list {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1rem;
+        gap: 12px;
       }
 
       .shortcut {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0.5rem;
+        padding: 12px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        transition: all 0.2s ease;
+      }
+
+      .shortcut:hover {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+      }
+
+      .shortcut span {
+        font-size: 14px;
+        font-weight: 500;
       }
 
       .key-combo {
-        background: #333;
+        background: var(--text-primary);
         color: white;
-        padding: 0.3rem 0.8rem;
-        border-radius: 5px;
+        padding: 4px 8px;
+        border-radius: 6px;
         font-family: monospace;
-        font-size: 0.9rem;
+        font-size: 12px;
+        font-weight: 600;
       }
 
-      .download-section {
-        text-align: center;
-        margin: 3rem 0;
+      .shortcut:hover .key-combo {
+        background: white;
+        color: var(--primary-color);
       }
 
-      .download-btn {
-        display: inline-block;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 1rem 2rem;
-        border-radius: 50px;
+      /* Boutons avec le style de l'extension */
+      .action-buttons {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 12px;
+        margin: 20px 0;
+      }
+
+      .action-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 20px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-primary);
         text-decoration: none;
-        font-weight: bold;
-        font-size: 1.1rem;
-        transition: transform 0.3s ease;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
       }
 
-      .download-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      .action-btn:hover {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+        box-shadow: var(--shadow);
       }
 
-      .installation {
-        background: #e8f5e8;
-        padding: 2rem;
-        border-radius: 10px;
-        border-left: 5px solid #28a745;
+      .action-btn.primary {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
       }
 
+      .action-btn.primary:hover {
+        background: var(--primary-hover);
+        border-color: var(--primary-hover);
+      }
+
+      /* Instructions d'installation */
       .installation ol {
-        margin-left: 1.5rem;
+        margin-left: 20px;
+        color: var(--text-secondary);
       }
 
       .installation li {
-        margin-bottom: 0.5rem;
+        margin-bottom: 8px;
+        font-size: 14px;
+        line-height: 1.5;
       }
 
-      footer {
+      .installation code {
+        background: var(--surface);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 13px;
+        border: 1px solid var(--border);
+      }
+
+      /* Footer */
+      .footer {
         text-align: center;
-        color: white;
-        opacity: 0.8;
-        margin-top: 2rem;
+        margin-top: 40px;
+        padding: 20px;
+        color: var(--text-secondary);
+        font-size: 14px;
       }
 
+      /* Responsive */
       @media (max-width: 768px) {
         .container {
           padding: 1rem;
         }
 
-        h1 {
-          font-size: 2rem;
+        .header h1 {
+          font-size: 24px;
         }
 
-        .main-content {
-          padding: 2rem;
+        .features {
+          grid-template-columns: 1fr;
+        }
+
+        .action-buttons {
+          grid-template-columns: 1fr;
         }
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <header>
+      <!-- Header avec le style de l'extension -->
+      <div class="header">
         <div class="logo">
-          <img
-            src="icons/icon128.png"
-            alt="StreamPilot"
-            style="width: 80px; height: 80px"
-          />
+          <img src="icons/icon128.png" alt="StreamPilot" />
         </div>
-        <h1>StreamPilot</h1>
-        <p class="subtitle">
-          Boîte à outils complète pour améliorer votre expérience vidéo sur le
-          web
-        </p>
-      </header>
+        <div>
+          <h1>StreamPilot</h1>
+          <p class="subtitle">
+            Boîte à outils complète pour améliorer votre expérience vidéo sur le
+            web
+          </p>
+        </div>
+      </div>
 
       <div class="main-content">
-        <section>
+        <!-- Section Fonctionnalités -->
+        <div class="section">
           <h2>Fonctionnalités</h2>
           <div class="features">
             <div class="feature">
@@ -216,15 +317,13 @@
             </div>
             <div class="feature">
               <h3>Raccourcis clavier</h3>
-              <p>
-                Contrôles rapides via des combinaisons de touches
-                personnalisables.
-              </p>
+              <p>Contrôles rapides via des combinaisons de touches.</p>
             </div>
           </div>
-        </section>
+        </div>
 
-        <section class="shortcuts">
+        <!-- Section Raccourcis clavier -->
+        <div class="section">
           <h2>Raccourcis clavier</h2>
           <div class="shortcut-list">
             <div class="shortcut">
@@ -244,18 +343,29 @@
               <span class="key-combo">Ctrl+Shift+,</span>
             </div>
           </div>
-        </section>
-
-        <div class="download-section">
-          <a
-            href="https://github.com/nmoussaoui-epsi/StreamPilot/archive/main.zip"
-            class="download-btn"
-          >
-            Télécharger StreamPilot
-          </a>
         </div>
 
-        <section class="installation">
+        <!-- Section Téléchargement -->
+        <div class="section">
+          <h2>Téléchargement</h2>
+          <div class="action-buttons">
+            <a
+              href="https://github.com/nmoussaoui-epsi/StreamPilot/archive/main.zip"
+              class="action-btn primary"
+            >
+              Télécharger StreamPilot
+            </a>
+            <a
+              href="https://github.com/nmoussaoui-epsi/StreamPilot"
+              class="action-btn"
+            >
+              Voir sur GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Section Installation -->
+        <div class="section installation">
           <h2>Installation</h2>
           <ol>
             <li>Téléchargez l'extension en cliquant sur le bouton ci-dessus</li>
@@ -267,15 +377,15 @@
             <li>Cliquez sur "Charger l'extension non empaquetée"</li>
             <li>Sélectionnez le dossier StreamPilot décompressé</li>
           </ol>
-        </section>
+        </div>
       </div>
 
-      <footer>
+      <div class="footer">
         <p>
           &copy; 2025 StreamPilot - Extension Chrome pour une meilleure
           expérience vidéo
         </p>
-      </footer>
+      </div>
     </div>
   </body>
 </html>
