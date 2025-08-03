@@ -453,10 +453,16 @@ class StreamPilotContent {
         descElement.textContent.trim().substring(0, 100) + "...";
     }
 
-    // Miniature YouTube (utilise l'ID de la vidéo)
-    const videoId = new URLSearchParams(window.location.search).get("v");
-    if (videoId) {
-      metadata.thumbnail = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+    // Essayer de récupérer la miniature depuis la page
+    const videoElement = this.video;
+    if (videoElement && videoElement.poster) {
+      metadata.thumbnail = videoElement.poster;
+    } else {
+      // Chercher une miniature dans les meta tags de la page
+      const ogImage = document.querySelector('meta[property="og:image"]');
+      if (ogImage) {
+        metadata.thumbnail = ogImage.content;
+      }
     }
 
     return metadata;
