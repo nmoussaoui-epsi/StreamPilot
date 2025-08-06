@@ -152,6 +152,14 @@ class StreamPilotPopup {
     document.getElementById("backBtn").addEventListener("click", () => {
       this.showMainPage();
     });
+
+    // Bouton Buy Me a Coffee
+    const coffeeBtn = document.getElementById("coffeeBtn");
+    if (coffeeBtn) {
+      coffeeBtn.addEventListener("click", () => {
+        this.openCoffeeLink();
+      });
+    }
   }
 
   /**
@@ -418,6 +426,15 @@ class StreamPilotPopup {
   showMainPage() {
     document.querySelector(".container").style.display = "block";
     document.getElementById("infoPage").style.display = "none";
+  }
+
+  /**
+   * Ouvre le lien Buy Me a Coffee
+   */
+  openCoffeeLink() {
+    chrome.tabs.create({
+      url: "https://www.buymeacoffee.com/nassimmouso",
+    });
   }
 }
 

@@ -402,16 +402,20 @@ body {
   margin: 12px 0;
 }
 
-.support-button a {
+.support-button .coffee-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
   display: inline-block;
   transition: transform 0.2s ease;
 }
 
-.support-button a:hover {
+.support-button .coffee-btn:hover {
   transform: scale(1.05);
 }
 
-.support-button img {
+.support-button .coffee-btn img {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 160px;

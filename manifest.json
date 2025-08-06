@@ -3,7 +3,10 @@
   "name": "StreamPilot",
   "version": "1.0.0",
   "description": "Boîte à outils complète pour améliorer votre expérience vidéo sur le web.",
-  "permissions": ["activeTab", "storage", "contextMenus"],
+  "permissions": ["activeTab", "storage", "contextMenus", "tabs"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
   "action": {
     "default_popup": "popup.html",
     "default_title": "StreamPilot",

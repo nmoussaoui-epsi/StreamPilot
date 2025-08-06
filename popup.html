@@ -90,7 +90,8 @@
       <div class="no-video" id="noVideoMessage" style="display: none">
         <p>Aucune vidéo détectée sur cette page</p>
         <small
-          >Ouvrez une page contenant une vidéo pour utiliser StreamPilot</small
+          >Ouvrez une page contenant une vidéo ou appuyer sur F5 pour utiliser
+          StreamPilot</small
         >
       </div>
 
@@ -106,17 +107,13 @@
           ☕
         </p>
         <div class="support-button">
-          <a
-            href="https://www.buymeacoffee.com/nassimmouso"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <button class="coffee-btn" id="coffeeBtn">
             <img
-              src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+              src="icons/default-yellow.png"
               alt="Buy Me A Coffee"
-              style="height: 45px !important; width: 163px !important"
+              style="height: 45px; width: 163px"
             />
-          </a>
+          </button>
         </div>
         <small class="support-thanks">Merci pour votre soutien !</small>
       </div>
@@ -175,19 +172,6 @@
       </div>
     </div>
 
-    <script
-      type="text/javascript"
-      src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
-      data-name="bmc-button"
-      data-slug="nassimmouso"
-      data-color="#FFDD00"
-      data-emoji="☕"
-      data-font="Cookie"
-      data-text="Buy me a coffee"
-      data-outline-color="#000000"
-      data-font-color="#000000"
-      data-coffee-color="#ffffff"
-    ></script>
     <script src="popup.js"></script>
   </body>
 </html>
